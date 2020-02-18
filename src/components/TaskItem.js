@@ -4,12 +4,12 @@ import * as actions from './../actions/index';
 
 class TaskItem extends Component {
 
-    showStatusElement(){
+    showStatusElement() {
         return (
             <span
-                className={ this.props.task.status ? 'label label-danger' : 'label label-info' }
-                onClick={ this.onUpdateStatus }
-            >{ this.props.task.status === true ? 'Kích Hoạt' : 'Ẩn' }</span>
+                className={this.props.task.status ? 'label label-danger' : 'label label-info'}
+                onClick={this.onUpdateStatus}
+            >{this.props.task.status === true ? 'Kích Hoạt' : 'Ẩn'}</span>
         );
     }
 
@@ -30,22 +30,22 @@ class TaskItem extends Component {
     render() {
         return (
             <tr>
-                <td>{ this.props.index }</td>
-                <td>{ this.props.task.name }</td>
+                <td>{this.props.index}</td>
+                <td>{this.props.task.name}</td>
                 <td className="text-center">
-                    { this.showStatusElement() }
+                    {this.showStatusElement()}
                 </td>
                 <td className="text-center">
                     <button
                         type="button"
                         className="btn btn-warning"
-                        onClick={ this.onEditTask }>
+                        onClick={this.onEditTask}>
                         <span className="fa fa-pencil mr-5"></span>Sửa
                     </button>
                     &nbsp;
                     <button
                         type="button" className="btn btn-danger"
-                        onClick={ this.onDeleteItem }>
+                        onClick={this.onDeleteItem}>
                         <span className="fa fa-trash mr-5"></span>Xóa
                     </button>
                 </td>
@@ -60,19 +60,19 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        onUpdateStatus : (id) => {
+        onUpdateStatus: (id) => {
             dispatch(actions.updateStatus(id));
         },
-        onDeleteTask : (id) => {
+        onDeleteTask: (id) => {
             dispatch(actions.deleteTask(id))
         },
-        onCloseForm : () => {
+        onCloseForm: () => {
             dispatch(actions.closeForm());
         },
-        onOpenForm : () => {
+        onOpenForm: () => {
             dispatch(actions.openForm());
         },
-        onEditTask : (task) => {
+        onEditTask: (task) => {
             dispatch(actions.editTask(task));
         }
     };
